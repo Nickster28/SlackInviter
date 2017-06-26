@@ -4,7 +4,7 @@ from time import sleep
 # ORIGINALLY WRITTEN BY ANTON APOSTOLATOS (antonaf@stanford.edu)
 
 # List of channels to add users to (without the '#')
-SLACK_CHANNELS = ['channel1', 'channel2', 'channel3']
+SLACK_CHANNELS = ['channel1', 'channel2']
 
 # Newline-separated list of Slack usernames to invite to the above channels
 USERNAMES_FILE = './usernames.txt'
@@ -41,7 +41,7 @@ def writeToSlack(command):
     os.system(first + keystrokes + last)
     sleep(0.04)
 
-# Add all usernames to each channel
+# Add all usernames to each channel.  Reprompt after each channel.
 for channel in SLACK_CHANNELS:
     with open(USERNAMES_FILE) as f:
         for username in f.readlines():
